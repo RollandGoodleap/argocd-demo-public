@@ -7,11 +7,11 @@ spec:
   project: default
 
   source:
-    repoURL: https://gitlab.com/nanuchi/argocd-app-config.git
+    repoURL: https://gitlab.com/RollandGoodleap/argocd-demo-public.git
     targetRevision: HEAD
     path: dev
   destination: 
-    server: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc #internal service name
     namespace: myapp
 
   syncPolicy:
@@ -19,5 +19,5 @@ spec:
     - CreateNamespace=true
 
     automated:
-      selfHeal: true
-      prune: true
+      selfHeal: true #overwrite manual changes and sync with git
+      prune: true #delete the old components when new are created
